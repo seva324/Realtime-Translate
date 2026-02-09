@@ -22,7 +22,12 @@ chrome.storage.sync.get(["apiKey"],d=>{
 let lastTime=0
 
 const speech=new SpeechEngine(onFinal,onInterim)
-speech.start("ja-JP")
+try{
+  speech.start("ja-JP")
+}catch(err){
+  box.innerText="浏览器不支持语音识别，无法启动字幕。"
+  console.error(err)
+}
 
 function onInterim(t){
   box.innerText=t

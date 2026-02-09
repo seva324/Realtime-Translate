@@ -7,16 +7,20 @@ export function createOverlay(){
     bottom:"8%",
     left:"50%",
     transform:"translateX(-50%)",
-    background:"rgba(0,0,0,0.65)",
-    color:"#fff",
-    padding:"14px 20px",
-    borderRadius:"14px",
-    fontSize:"22px",
+    background:"linear-gradient(135deg, rgba(15,23,42,0.85), rgba(30,41,59,0.75))",
+    color:"#f8fafc",
+    padding:"16px 22px",
+    borderRadius:"18px",
+    fontSize:"20px",
     zIndex:999999,
-    maxWidth:"80%",
+    maxWidth:"85%",
     textAlign:"center",
-    lineHeight:"1.5",
-    backdropFilter:"blur(6px)"
+    lineHeight:"1.55",
+    boxShadow:"0 16px 35px rgba(15, 23, 42, 0.4)",
+    backdropFilter:"blur(12px)",
+    border:"1px solid rgba(148, 163, 184, 0.2)",
+    letterSpacing:"0.2px",
+    fontFamily:"\"Segoe UI\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
   })
   document.body.appendChild(box)
   return box
