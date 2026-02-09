@@ -1,5 +1,5 @@
 
-export class SpeechEngine{
+class SpeechEngine{
   constructor(onFinal,onInterim){
     this.onFinal=onFinal
     this.onInterim=onInterim
@@ -33,3 +33,5 @@ export class SpeechEngine{
     this.recognition=r
   }
 }
+
+window.SpeechEngine = SpeechEngine

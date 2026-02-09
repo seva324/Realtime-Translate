@@ -1,13 +1,114 @@
 
 <!DOCTYPE html>
-<html>
-<body style="font-family:sans-serif;padding:20px">
-<h2>Realtime Subtitle v2</h2>
-<p>Kimi API Key</p>
-<input id="key" style="width:320px"/>
-<br/><br/>
-<button id="save">保存</button>
-<p>刷新页面后生效</p>
-<script src="options.js"></script>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Realtime Subtitle v2</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #0f172a;
+      --card: rgba(15, 23, 42, 0.85);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --input-bg: rgba(30, 41, 59, 0.9);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --accent: #2563eb;
+        --accent-hover: #1d4ed8;
+        --input-bg: #f1f5f9;
+      }
+    }
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 360px;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.2), transparent 55%), var(--bg);
+      color: var(--text);
+    }
+    body {
+      padding: 16px;
+    }
+    .card {
+      width: 100%;
+      padding: 22px;
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+    p {
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    label {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    input {
+      margin-top: 10px;
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: var(--input-bg);
+      color: var(--text);
+      outline: none;
+    }
+    input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+    }
+    button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 12px 0;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      background: var(--accent);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    button:hover {
+      background: var(--accent-hover);
+    }
+    .status {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Realtime Subtitle v2</h2>
+    <p>配置 Kimi API Key 后即可开始实时字幕翻译。</p>
+    <label for="key">Kimi API Key</label>
+    <input id="key" placeholder="sk-..." autocomplete="off" />
+    <button id="save" type="button">保存设置</button>
+    <div class="status" id="status">保存后刷新页面生效。</div>
+  </div>
+  <script src="options.js"></script>
 </body>
 </html>
