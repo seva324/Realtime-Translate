@@ -1,7 +1,7 @@
 
 let queue = Promise.resolve()
 
-export function enqueueTranslate(text,settings){
+function enqueueTranslate(text,settings){
   queue = queue.then(()=>doTranslate(text,settings))
   return queue
 }
@@ -43,3 +43,5 @@ async function doTranslate(text,settings){
   const data=await res.json()
   return data.choices?.[0]?.message?.content?.trim()||"翻译为空"
 }
+
+window.enqueueTranslate = enqueueTranslate

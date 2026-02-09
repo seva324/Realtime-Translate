@@ -1,5 +1,5 @@
 
-export function createOverlay(){
+function createOverlay(){
   const box=document.createElement("div")
   box.id="ai-subtitle-box"
   Object.assign(box.style,{
@@ -25,3 +25,5 @@ export function createOverlay(){
   document.body.appendChild(box)
   return box
 }
+
+window.createOverlay = createOverlay
