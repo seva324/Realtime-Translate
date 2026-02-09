@@ -1,9 +1,6 @@
 
-import {SpeechEngine} from "./speech.js"
-import {enqueueTranslate} from "./translator.js"
-import {createOverlay} from "./overlay.js"
-
-const box=createOverlay()
+const box=window.createOverlay()
+box.innerText="正在初始化语音识别…"
 
 let settings={
   apiKey:"",
@@ -21,8 +18,19 @@ chrome.storage.sync.get(["apiKey"],d=>{
 
 let lastTime=0
 
-const speech=new SpeechEngine(onFinal,onInterim)
-speech.start("ja-JP")
+const speech=new window.SpeechEngine(onFinal,onInterim,onStatus)
+try{
+  speech.start("ja-JP")
+}catch(err){
+  box.innerText="浏览器不支持语音识别，无法启动字幕。"
+  console.error(err)
+}
+
+function onStatus(message){
+  if(!box.innerText || box.innerText.startsWith("正在") || box.innerText.includes("语音识别")){
+    box.innerText=message
+  }
+}
 
 function onInterim(t){
   box.innerText=t
@@ -38,7 +46,7 @@ async function onFinal(t){
   if(now-lastTime<200) return
   lastTime=now
 
-  const tr=await enqueueTranslate(t,settings)
+  const tr=await window.enqueueTranslate(t,settings)
 
   if(settings.mode==="original") box.innerText=t
   else if(settings.mode==="translated") box.innerText=tr

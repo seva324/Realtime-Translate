@@ -22,9 +22,11 @@
         "<all_urls>"
       ],
       "js": [
+        "speech.js",
+        "translator.js",
+        "overlay.js",
         "content.js"
-      ],
-      "type": "module"
+      ]
     }
   ]
 }
