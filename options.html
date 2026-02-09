@@ -31,20 +31,18 @@
       box-sizing: border-box;
       font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
     }
-    html,
     body {
       margin: 0;
-      padding: 0;
-      width: 360px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: radial-gradient(circle at top, rgba(56, 189, 248, 0.2), transparent 55%), var(--bg);
       color: var(--text);
     }
-    body {
-      padding: 16px;
-    }
     .card {
-      width: 100%;
-      padding: 22px;
+      width: min(420px, 92vw);
+      padding: 28px;
       border-radius: 18px;
       background: var(--card);
       box-shadow: 0 20px 45px rgba(15, 23, 42, 0.3);
